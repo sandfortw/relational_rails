@@ -1,6 +1,7 @@
-<form action="/books" method="post">
+<form action="/books/<%= @book.id %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <p>Enter a new book</p>
+  <input type="hidden" name="_method" value="PATCH" />
+  <p>Edit</p>
   <p>Name</p>
   <input type='text' name='book[name]'/><br/>
   <p>Fiction or Nonfiction</p>
@@ -13,5 +14,4 @@
   <p>Author Id </p>
   <input type='number' name='book[author_id]'/><br/>
   <input type='submit'/>
-
 </form>

@@ -3,3 +3,17 @@
 <% @books.each do |book| %>
   <h3><%= book %></h3>
 <% end %>
+
+<% @books.each do |book| %>
+  <h3><a href="/books/<%= book.id %>"><%= book.name %></a></h3>
+  <p><%= book.name %></h3>
+  <p><%= book.year_written %></p>
+  <p><%= book.fiction %></p>
+  <p><%= book.created_at %></p>
+  <p><%= book.updated_at %></p>
+  <form action="/books/<%= book.id %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="delete"/>
+  </form>
+<% end %>

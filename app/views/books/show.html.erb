@@ -1,0 +1,7 @@
+<a href="/books">Book Index</a>
+  <h3><%= @book.name %></h3>
+  <p><%= @book.year_written %></p>
+  <p><%= @book.fiction %></p>
+  <p><%= @book.created_at %></p>
+  <p><%= @book.updated_at %></p>
+  <a href="/books/<%= @book.id %>/edit">Edit</a>

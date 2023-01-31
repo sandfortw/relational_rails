@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_31_020556) do
+ActiveRecord::Schema.define(version: 2023_01_31_033728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 2023_01_31_020556) do
     t.boolean "dead_or_alive"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean "fiction"
+    t.integer "author_id"
+    t.integer "year_written"
   end
 
 end
