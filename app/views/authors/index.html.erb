@@ -1,5 +1,9 @@
 <h1>All Authors</h1>
 
 <% @authors.each do |author| %>
-  <h3><%= author %></h3>
+  <h3><%= author.name %></h3>
+  <h3><%= author.year_born %></h3>
+  <h3><%= author.dead_or_alive %></h3>
+  <h3><%= author.created_at %></h3>
+  <h3><%= author.updated_at %></h3>
 <% end %>
