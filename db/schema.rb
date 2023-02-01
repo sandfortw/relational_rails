@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_31_033728) do
+ActiveRecord::Schema.define(version: 2023_02_01_011645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,18 +18,20 @@ ActiveRecord::Schema.define(version: 2023_01_31_033728) do
   create_table "authors", force: :cascade do |t|
     t.string "name"
     t.integer "year_born"
-    t.boolean "dead_or_alive"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.boolean "alive"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "books", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "title"
     t.boolean "fiction"
-    t.integer "author_id"
     t.integer "year_written"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "author_id"
+    t.index ["author_id"], name: "index_books_on_author_id"
   end
 
+  add_foreign_key "books", "authors"
 end
