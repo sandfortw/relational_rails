@@ -15,7 +15,7 @@ class AuthorsController < ApplicationController
     author = Author.new({
       name: params[:author][:name],
       year_born: params[:author][:year_born].to_i,
-      dead_or_alive: ActiveModel::Type::Boolean.new.cast(params[:author][:living]),
+      alive: ActiveModel::Type::Boolean.new.cast(params[:author][:alive]),
       created_at: DateTime.now,
       updated_at: DateTime.now,
       })
@@ -32,7 +32,7 @@ class AuthorsController < ApplicationController
     author.update({
       name: params[:author][:name],
       year_born: params[:author][:year_born].to_i,
-      dead_or_alive: ActiveModel::Type::Boolean.new.cast(params[:author][:living]),
+      alive: ActiveModel::Type::Boolean.new.cast(params[:author][:alive]),
       updated_at: DateTime.now
     })
     author.save

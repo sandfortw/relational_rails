@@ -5,8 +5,8 @@
 <% end %>
 
 <% @books.each do |book| %>
-  <h3><a href="/books/<%= book.id %>"><%= book.name %></a></h3>
-  <p><%= book.name %></h3>
+  <h3><a href="/books/<%= book.id %>"><%= book.title %></a></h3>
+  <p><%= book.title %></h3>
   <p><%= book.year_written %></p>
   <p><%= book.fiction %></p>
   <p><%= book.created_at %></p>

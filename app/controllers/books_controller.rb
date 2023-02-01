@@ -13,7 +13,7 @@ class BooksController < ApplicationController
 
   def create
     book = Book.new({
-      name: params[:book][:name],
+      title: params[:book][:title],
       author_id: params[:book][:author_id].to_i,
       year_written: params[:book][:year_written].to_i,
       fiction: ActiveModel::Type::Boolean.new.cast(params[:book][:fiction]),
@@ -31,7 +31,7 @@ class BooksController < ApplicationController
   def update
     book = Book.find(params[:id])
     book.update({
-      name: params[:book][:name],
+      title: params[:book][:title],
       author_id: params[:book][:author_id].to_i,
       year_written: params[:book][:year_written].to_i,
       fiction: ActiveModel::Type::Boolean.new.cast(params[:book][:fiction]),
