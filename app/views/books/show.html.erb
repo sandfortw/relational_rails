@@ -1,7 +1,8 @@
 <a href="/books">Book Index</a>
   <h3><%= @book.title %></h3>
-  <p><%= @book.year_written %></p>
-  <p><%= @book.fiction %></p>
-  <p><%= @book.created_at %></p>
-  <p><%= @book.updated_at %></p>
+  <p>Author id: <%= @book.author_id %></p>
+  <p>Year written: <%= @book.year_written %></p>
+  <p>Fiction?: <%= @book.fiction %></p>
+  <p>Created at: <%= @book.created_at %></p>
+  <p>Updated at: <%= @book.updated_at %></p>
   <a href="/books/<%= @book.id %>/edit">Edit</a>
