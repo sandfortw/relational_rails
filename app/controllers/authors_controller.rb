@@ -43,4 +43,5 @@ class AuthorsController < ApplicationController
     Author.destroy(params[:id])
     redirect_to '/authors'
   end
+
 end
