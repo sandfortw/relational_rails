@@ -19,4 +19,12 @@ describe 'author show page' do
     expect(page).to have_content(author.updated_at)
     save_and_open_page
   end
+
+  it 'should have a count of the number of children' do
+    author = Author.create!(name: 'Shakespeare', year_born: 1564, alive: false)
+    book = Book.create!(title:'Outliers', author_id: author.id, year_written: 2008, fiction: false)
+    book1 = Book.create!(title:'Something book', author_id: author.id, year_written: 2008, fiction: false)
+    visit "/authors/#{author.id}"
+    expect(page).to have_content("Book count: 2")
+  end
 end

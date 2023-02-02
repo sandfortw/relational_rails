@@ -1,7 +1,7 @@
 class AuthorsController < ApplicationController
 
   def index
-    @authors = Author.all
+    @authors = Author.order(created_at: :desc)
   end
 
   def new
