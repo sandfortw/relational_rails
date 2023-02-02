@@ -25,6 +25,5 @@ describe 'author show page' do
     book1 = Book.create!(title:'Something book', author_id: author.id, year_written: 2008, fiction: false)
     visit "/authors/#{author.id}"
     expect(page).to have_content("Book count: 2")
-    save_and_open_page
   end
 end
