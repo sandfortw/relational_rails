@@ -9,6 +9,7 @@ class AuthorsController < ApplicationController
 
   def show
     @author =Author.find(params[:id])
+    @count = @author.books.count
   end
 
   def create
@@ -44,4 +45,5 @@ class AuthorsController < ApplicationController
     redirect_to '/authors'
   end
 
+  
 end
