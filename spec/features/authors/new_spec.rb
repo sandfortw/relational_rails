@@ -1,7 +1,5 @@
 require 'rails_helper'
 
-# User Story 11, Parent Creation 
-
 describe 'new author page' do
   it 'can submit the form for a new author' do
     visit '/authors/new'
