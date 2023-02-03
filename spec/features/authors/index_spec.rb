@@ -24,4 +24,11 @@ describe 'the author index page' do
     visit '/authors'
     expect(@author2.name).to appear_before(@author.name)
   end
+
+  it 'should have a link called "New Author" that redirects when I click' do
+    visit '/authors'
+    expect(page).to have_content('New Author')
+    click_link('New Author')
+    expect(current_path).to eq("/authors/new") 
+  end
 end
