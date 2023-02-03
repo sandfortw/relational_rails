@@ -1,9 +1,10 @@
 <a href="/authors">Author Index</a>
-  <h3><%= @author.name %></h3>
-  <p><%= @author.year_born %></p>
-  <p><%= @author.alive %></p>
-  <p><%= @author.created_at %></p>
-  <p><%= @author.updated_at %></p>
+  <p>Name: <%= @author.name %></h3>
+  <p>Id: <%= @author.id %></h3>
+  <p>Year Born: <%= @author.year_born %></p>
+  <p>Alive?: <%= @author.alive? %></p>
+  <p>Created At: <%= @author.created_at %></p>
+  <p>Updated At: <%= @author.updated_at %></p>
   <p>Book count: <%= @count%> </p>
-  <a href="/authors/<%= @author.id %>/edit">Edit</a>
+  <a href="/authors/<%= @author.id %>/edit">Update Author</a>
   <a href="/authors/<%= @author.id %>/books">Books</a>
