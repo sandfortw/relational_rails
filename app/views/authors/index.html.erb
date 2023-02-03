@@ -1,0 +1,15 @@
+<h1>All Authors</h1>
+
+<% @authors.each do |author| %>
+  <h3><a href="/authors/<%= author.id %>"><%= author.name %></a></h3>
+  <p><%= author.name %></h3>
+  <p><%= author.year_born %></p>
+  <p><%= author.alive %></p>
+  <p><%= author.created_at %></p>
+  <p><%= author.updated_at %></p>
+  <form action="/authors/<%= author.id %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="delete"/>
+  </form>
+<% end %>

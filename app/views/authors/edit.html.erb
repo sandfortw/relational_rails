@@ -1,0 +1,15 @@
+<form action="/authors/<%= @author.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <h2>Edit</h2>
+  <p>Name</p>
+  <input type='text' name='author[name]'/><br/>
+  <p>Alive or Dead</p>
+  <input type="radio" id="Alive" name="author[alive]" value="true">
+  <label for="Alive">Alive</label>
+  <input type="radio" id="Dead" name="author[alive]" value="false">
+  <label for="Dead">Dead</label>
+  <p>Year Born</p>
+  <input type='number' name='author[year_born]'/><br/>
+  <input type='submit'/>
+</form>
