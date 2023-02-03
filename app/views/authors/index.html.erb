@@ -2,14 +2,17 @@
 
 <% @authors.each do |author| %>
   <h3><a href="/authors/<%= author.id %>"><%= author.name %></a></h3>
-  <p><%= author.name %></h3>
-  <p><%= author.year_born %></p>
-  <p><%= author.alive %></p>
-  <p><%= author.created_at %></p>
-  <p><%= author.updated_at %></p>
+  <p>Name: <%= author.name %></h3>
+  <p>Id: <%= author.id %></h3>
+  <p>Year Born: <%= author.year_born %></p>
+  <p>Alive?: <%= author.alive? %></p>
+  <p>Created At: <%= author.created_at %></p>
+  <p>Updated At: <%= author.updated_at %></p>
   <form action="/authors/<%= author.id %>" method="POST">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <input type="hidden" name="_method" value="DELETE">
     <input type="submit" value="delete"/>
   </form>
 <% end %>
+
+<h3><a href="/authors/new">New Author</a><h3>

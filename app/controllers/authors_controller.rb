@@ -16,7 +16,7 @@ class AuthorsController < ApplicationController
     author = Author.new({
       name: params[:author][:name],
       year_born: params[:author][:year_born].to_i,
-      alive: ActiveModel::Type::Boolean.new.cast(params[:author][:alive]),
+      alive: ActiveModel::Type::Boolean.new.cast(params[:author][:living]),
       created_at: DateTime.now,
       updated_at: DateTime.now,
       })
