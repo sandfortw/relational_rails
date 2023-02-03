@@ -22,7 +22,6 @@ describe 'the author index page' do
 
   it 'should be ordered by most recently created record' do
     visit '/authors'
-    save_and_open_page
-    # expect(page).to =~ /#{@author2.name}.*#{@author.name}/
+    expect(@author2.name).to appear_before(@author.name)
   end
 end
