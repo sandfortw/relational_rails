@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   get '/authors/new', to: 'authors#new'
   post '/authors', to: 'authors#create'
   get '/authors/:id', to: 'authors#show'
-  get '/authors/:id/books', to: 'author_books#index'
   patch '/authors/:id', to: 'authors#update'
   get '/authors/:id/edit', to: 'authors#edit'
   delete '/authors/:id', to: 'authors#destroy'
@@ -21,4 +20,7 @@ Rails.application.routes.draw do
   get '/books/:id/edit', to: 'books#edit'
   delete '/books/:id', to: 'books#destroy'
 
+  get '/authors/:id/books', to: 'author_books#index'
+  get '/authors/:id/books/new', to: 'author_books#new'
+  post '/authors/:id/books', to: 'author_books#create'
 end
