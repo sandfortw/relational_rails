@@ -1,13 +1,4 @@
 # frozen_string_literal: true
-
-# [ ] done
-
-# User Story 1, Parent Index
-# For each parent table
-# As a visitor
-# When I visit '/parents'
-# Then I see the name of each parent record in the system
-
 require 'rails_helper'
 
 describe 'the author index page' do
@@ -32,4 +23,13 @@ describe 'the author index page' do
     click_link('New Author')
     expect(current_path).to eq('/authors/new')
   end
+
+  it 'should have a link to edit the author' do
+    author = Author.create!(name: 'Mary Shelley', year_born: 1797, alive: false)
+    visit "/authors"
+    click_link('Update Author')
+    expect(current_path).to eq("/authors/#{author.id}/edit")
+  end
+
+  
 end
