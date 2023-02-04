@@ -17,7 +17,6 @@ describe 'new authorbook page' do
       expect(page).to have_content('Pride and Prejudice')
       expect(page).to have_content('true')
       expect(page).to have_content('1813')
-      save_and_open_page
     end
   end
 end
