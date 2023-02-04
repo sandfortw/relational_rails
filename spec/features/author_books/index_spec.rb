@@ -8,7 +8,6 @@ describe 'author books index' do
     @book1 = Book.create!(title:'Something book', author_id: @author.id, year_written: 2008, fiction: false)
 
     visit "/authors/#{@author.id}/books"
-    save_and_open_page
     expect(page).to have_content(@book.title)
     expect(page).to have_content(@book1.title)
     expect(page).to have_content(@book.year_written)

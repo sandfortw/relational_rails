@@ -14,7 +14,6 @@ describe 'books show' do
     author = Author.create!(name: 'Malcolm Gladwell', year_born: 1963, alive: true)
     book = Book.create!(title:'Outliers', author_id: author.id, year_written: 2008, fiction: false)
     visit "/books/#{book.id}"
-    save_and_open_page
     expect(page).to have_content(book.title)
     expect(page).to have_content(book.author_id)
     expect(page).to have_content(book.year_written)

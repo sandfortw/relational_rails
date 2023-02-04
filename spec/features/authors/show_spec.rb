@@ -39,7 +39,6 @@ describe 'author show page' do
   it 'should have a link to edit the author' do
     author = Author.create!(name: 'Mary Shelley', year_born: 1797, alive: false)
     visit "/authors/#{author.id}"
-    save_and_open_page
     click_link('Update Author')
     expect(current_path).to eq("/authors/#{author.id}/edit")
   end

@@ -20,7 +20,6 @@ describe 'books index' do
 
   it 'should have each book in the database' do
     visit '/books/'
-    save_and_open_page
     expect(page).to have_content(@book.title)
     expect(page).to have_content(@book1.title)
   end
