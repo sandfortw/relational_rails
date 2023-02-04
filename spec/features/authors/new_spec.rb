@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'new author page' do
@@ -6,7 +8,7 @@ describe 'new author page' do
     fill_in 'author[name]', with: 'Kazuo Ishiguro'
     choose('Alive')
     fill_in 'author[year_born]', with: 1954
-    click_button "Create Author"
+    click_button 'Create Author'
     expect(current_path).to eq('/authors')
     expect(page).to have_content('Name: Kazuo Ishiguro')
     expect(page).to have_content('Year Born: 1954')

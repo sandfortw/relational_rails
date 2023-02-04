@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-describe Author do 
+describe Author do
   describe 'instance methods' do
     describe '#name' do
       it 'returns a name' do

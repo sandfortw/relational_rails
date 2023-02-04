@@ -1,11 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'author books index' do
-
   it 'shows every book for an author with content' do
     @author = Author.create!(name: 'Malcolm Gladwell', year_born: 1963, alive: true)
-    @book = Book.create!(title:'Outliers', author_id: @author.id, year_written: 2008, fiction: false)
-    @book1 = Book.create!(title:'Something book', author_id: @author.id, year_written: 2008, fiction: false)
+    @book = Book.create!(title: 'Outliers', author_id: @author.id, year_written: 2008, fiction: false)
+    @book1 = Book.create!(title: 'Something book', author_id: @author.id, year_written: 2008, fiction: false)
 
     visit "/authors/#{@author.id}/books"
     expect(page).to have_content(@book.title)

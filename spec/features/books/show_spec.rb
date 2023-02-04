@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 # [ ] done
 
-# User Story 4, Child Show 
+# User Story 4, Child Show
 
 # As a visitor
 # When I visit '/child_table_name/:id'
@@ -12,7 +14,7 @@ require 'rails_helper'
 describe 'books show' do
   it 'should have the book with attributes' do
     author = Author.create!(name: 'Malcolm Gladwell', year_born: 1963, alive: true)
-    book = Book.create!(title:'Outliers', author_id: author.id, year_written: 2008, fiction: false)
+    book = Book.create!(title: 'Outliers', author_id: author.id, year_written: 2008, fiction: false)
     visit "/books/#{book.id}"
     expect(page).to have_content(book.title)
     expect(page).to have_content(book.author_id)
