@@ -6,6 +6,7 @@ describe 'the author index page' do
     @author = Author.create!(name: 'Shakespeare', year_born: 1564, alive: false)
     @author2 = Author.create!(name: 'Malcolm Gladwell', year_born: 1963, alive: true)
   end
+
   it 'should display the name of each parent record in the system' do
     visit '/authors'
     expect(page).to have_content(@author.name)
@@ -24,12 +25,14 @@ describe 'the author index page' do
     expect(current_path).to eq('/authors/new')
   end
 
+end
+
+describe 'update author link' do
+  #TODO: Create a test that works when multiple authors are on the page
   it 'should have a link to edit the author' do
     author = Author.create!(name: 'Mary Shelley', year_born: 1797, alive: false)
     visit "/authors"
     click_link('Update Author')
     expect(current_path).to eq("/authors/#{author.id}/edit")
   end
-
-  
 end
