@@ -2,7 +2,7 @@
 
 class BooksController < ApplicationController
   def index
-    @books = Book.all
+    @books = Book.all.where(:fiction => true)
   end
 
   def new; end
