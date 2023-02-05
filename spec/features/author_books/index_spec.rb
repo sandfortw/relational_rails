@@ -28,4 +28,9 @@ describe 'author books index' do
     expect(@a_book.title).to appear_before(@b_book.title)
     expect(@b_book.title).to appear_before(@c_book.title)
   end
+
+  it 'should have an edit link' do #TODO: Make this test better
+    visit "/authors/#{@author.id}/books"
+    expect(page).to have_content('Edit Book')
+  end
 end

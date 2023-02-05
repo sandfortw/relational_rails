@@ -30,4 +30,9 @@ describe 'books index' do
     expect(page).to have_content(@book.title)
     expect(page).not_to have_content(@book3.title)
   end
+
+  it 'should have an edit link' do #TODO: Make this test better
+    visit '/books/'
+    expect(page).to have_content('Edit Book')
+  end
 end
