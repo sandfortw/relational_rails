@@ -57,5 +57,14 @@ describe Author do
         expect(author2.id).to eq(author.id + 1)
       end
     end
+
+    describe '#destroy' do
+      it 'destroys the author' do
+        author = Author.create!(name: 'Shakespeare', year_born: 1564, alive: false)
+        expect(author).to be_present
+        Author.destroy(author.id)
+        expect(author.nil?)
+      end
+    end
   end
 end
