@@ -41,6 +41,7 @@ class AuthorsController < ApplicationController
   end
 
   def destroy
+    Book.destroy(params[:id])
     Author.destroy(params[:id])
     redirect_to '/authors'
   end
