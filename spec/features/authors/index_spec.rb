@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'the author index page' do
@@ -24,14 +25,13 @@ describe 'the author index page' do
     click_link('New Author')
     expect(current_path).to eq('/authors/new')
   end
-
 end
 
 describe 'update author link' do
-  #TODO: Create a test that works when multiple authors are on the page
+  # TODO: Create a test that works when multiple authors are on the page
   it 'should have a link to edit the author' do
     author = Author.create!(name: 'Mary Shelley', year_born: 1797, alive: false)
-    visit "/authors"
+    visit '/authors'
     click_link('Update Author')
     expect(current_path).to eq("/authors/#{author.id}/edit")
   end

@@ -13,6 +13,7 @@
     <input type="hidden" name="_method" value="DELETE">
     <input type="submit" value="delete"/>
   </form>
+  <a id=<%="update#{author.id}"%> href="/authors/<%= author.id %>/edit">Update Author</a>
 <% end %>
 
 <h3><a href="/authors/new">New Author</a><h3>

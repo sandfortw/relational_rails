@@ -24,7 +24,7 @@ describe 'author books index' do
     @b_book = Book.create!(title: 'Bbbbb', author_id: @author.id, year_written: 2008, fiction: false)
     @a_book = Book.create!(title: 'Aaaaa', author_id: @author.id, year_written: 2008, fiction: false)
     visit "/authors/#{@author.id}/books"
-   
+
     expect(@a_book.title).to appear_before(@b_book.title)
     expect(@b_book.title).to appear_before(@c_book.title)
   end

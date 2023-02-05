@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'books edit view' do
   describe 'the form' do
     before :each do
       @time_updated = Time.now
-      @time_created = Time.new(2022, 01, 01, 12, 0, 0, "+09:00")
+      @time_created = Time.new(2022, 0o1, 0o1, 12, 0, 0, '+09:00')
       allow(Time).to receive(:now).and_return(@time_created)
       @author = Author.create!(name: 'Malcolm Gladwell', year_born: 1963, alive: true)
       @book = Book.create!(title: 'Outliers', author_id: @author.id, year_written: 2008, fiction: false)
@@ -12,9 +14,9 @@ describe 'books edit view' do
     it 'starts prefilled' do
       visit "/books/#{@book.id}/edit"
       expect(page).to have_field('book[title]', with: 'Outliers')
-      expect(page).to have_field('book[year_written]', with: 2008)      
-      expect(page).to have_field('book[author_id]', with: @author.id)      
-      expect(page).to have_checked_field('book[fiction]') #TODO: check if this is marking the correct radio
+      expect(page).to have_field('book[year_written]', with: 2008)
+      expect(page).to have_field('book[author_id]', with: @author.id)
+      expect(page).to have_checked_field('book[fiction]') # TODO: check if this is marking the correct radio
     end
 
     it 'redirects to the book\'s show page' do
