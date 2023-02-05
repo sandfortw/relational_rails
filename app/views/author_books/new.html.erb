@@ -1,0 +1,17 @@
+<form action="/authors/<%= "#{params["id"]}" %>/books" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>Enter a new book</p>
+  <p>Name</p>
+  <input type='text' name='book[title]'/><br/>
+  <p>Fiction or Nonfiction</p>
+  <input type="radio" id="Fiction" name="book[fiction]" value="true">
+  <label for="Fiction">Fiction</label>
+  <input type="radio" id="Nonfiction" name="book[fiction]" value="false">
+  <label for="Nonfiction">Nonfiction</label>
+  <p>Year Written</p>
+  <input type='number' name='book[year_written]'/><br/>
+  <input type="hidden" name='book[author_id]' value="<%= params["id"] %>" /><br/>
+  <input type='submit' value="Create Book"/>
+</form>
+
+ 
