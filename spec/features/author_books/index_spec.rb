@@ -30,7 +30,9 @@ describe 'author books index' do
   end
 
   it 'should have an edit link' do #TODO: Make this test better
+    @author = Author.create!(name: 'Malcolm Gladwell', year_born: 1963, alive: true)
+    @book = Book.create!(title: 'Outliers', author_id: @author.id, year_written: 2008, fiction: false)
     visit "/authors/#{@author.id}/books"
-    expect(page).to have_content('Edit Book')
+    expect(page).to have_content('Edit book')
   end
 end

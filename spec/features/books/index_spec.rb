@@ -33,6 +33,6 @@ describe 'books index' do
 
   it 'should have an edit link' do #TODO: Make this test better
     visit '/books/'
-    expect(page).to have_content('Edit Book')
+    expect(page).to have_content('Edit book')
   end
 end
