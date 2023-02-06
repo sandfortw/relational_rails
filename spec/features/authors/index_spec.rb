@@ -32,7 +32,7 @@ describe 'update author link' do
   it 'should have a link to edit the author' do
     author = Author.create!(name: 'Mary Shelley', year_born: 1797, alive: false)
     visit '/authors'
-    click_link('Update Author')
+    click_link("Update #{author.name}")
     expect(current_path).to eq("/authors/#{author.id}/edit")
   end
 end
