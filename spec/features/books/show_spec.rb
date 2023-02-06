@@ -23,4 +23,22 @@ describe 'books show' do
     click_link 'Update Book'
     expect(current_path).to eq("/books/#{@book.id}/edit")
   end
+
+#   User Story 20, Child Delete 
+
+# As a visitor
+# When I visit a child show page
+# Then I see a link to delete the child "Delete Child"
+# When I click the link
+# Then a 'DELETE' request is sent to '/child_table_name/:id',
+# the child is deleted,
+# and I am redirected to the child index page where I no longer see this child
+
+  it 'should have a link to delete the child' do
+    visit "/books/#{@book.id}"
+    expect(page).to have_content("Delete #{@book.title}")
+    click_link "Delete #{@book.title}"
+    expect(current_path).to eq("/books")
+    expect(page).to_not have_content("#{@book.title}")
+  end
 end
