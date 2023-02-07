@@ -41,7 +41,6 @@ class AuthorsController < ApplicationController
   end
 
   def destroy
-    require 'pry'; binding.pry
     # Book.destroy(params[:id]) 
     Author.destroy(params[:id])
     redirect_to '/authors'
