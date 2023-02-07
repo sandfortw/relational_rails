@@ -3,13 +3,22 @@
   <input type="hidden" name="_method" value="PATCH" />
   <h2>Edit</h2>
   <p>Name</p>
-  <input type='text' name='author[name]'/><br/>
+  <input type='text' name='author[name]' value="<%= @author.name %>"/><br/>
   <p>Alive or Dead</p>
-  <input type="radio" id="Alive" name="author[alive]" value="true">
-  <label for="Alive">Alive</label>
-  <input type="radio" id="Dead" name="author[alive]" value="false">
-  <label for="Dead">Dead</label>
+  <%if @author.alive %>
+    <input type="radio" id="Alive" name="author[alive]" value="true" checked="checked">
+    <label for="Alive">Alive</label>
+    <input type="radio" id="Dead" name="author[alive]" value="false">
+    <label for="Dead">Dead</label>
+  <%end%>
+  <%if !@author.alive %>
+    <input type="radio" id="Alive" name="author[alive]" value="true">
+    <label for="Alive">Alive</label>
+    <input type="radio" id="Dead" name="author[alive]" value="false" checked="checked">
+    <label for="Dead">Dead</label>
+  <%end%>
+
   <p>Year Born</p>
-  <input type='number' name='author[year_born]'/><br/>
+  <input type='number' name='author[year_born]'value="<%= @author.year_born %>"/><br/>
   <input type='submit' name="submit"/>
 </form>
