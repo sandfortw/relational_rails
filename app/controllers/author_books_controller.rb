@@ -3,12 +3,12 @@
 class AuthorBooksController < ApplicationController
   def index
     @author = Author.find(params[:id])
-    if params[:year_floor].nil?
-      @books = @author.books
-    else
-      @books = @author.books.where("year_written > #{params['year_floor']}")
-    end
-    @books = @books.order(:title) if params["alpha"] == "true"
+    @books = if params[:year_floor].nil?
+               @author.books
+             else
+               @author.books.where("year_written > #{params['year_floor']}")
+             end
+    @books = @books.order(:title) if params['alpha'] == 'true'
   end
 
   def new; end
@@ -25,5 +25,4 @@ class AuthorBooksController < ApplicationController
     book.save
     redirect_to "/authors/#{params['id']}/books"
   end
-
 end

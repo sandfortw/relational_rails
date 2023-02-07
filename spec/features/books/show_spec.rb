@@ -28,7 +28,7 @@ describe 'books show' do
     visit "/books/#{@book.id}"
     expect(page).to have_content("Delete #{@book.title}")
     click_link "Delete #{@book.title}"
-    expect(current_path).to eq("/books")
-    expect(page).to_not have_content("#{@book.title}")
+    expect(current_path).to eq('/books')
+    expect(page).to_not have_content(@book.title.to_s)
   end
 end
