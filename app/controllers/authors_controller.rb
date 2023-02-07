@@ -13,14 +13,7 @@ class AuthorsController < ApplicationController
   end
 
   def create
-    author = Author.new({
-                          name: params[:author][:name],
-                          year_born: params[:author][:year_born].to_i,
-                          alive: ActiveModel::Type::Boolean.new.cast(params[:author][:living]),
-                          created_at: DateTime.now,
-                          updated_at: DateTime.now
-                        })
-    author.save
+    Author.author_create(params)
     redirect_to '/authors'
   end
 
@@ -29,19 +22,12 @@ class AuthorsController < ApplicationController
   end
 
   def update
-    author = Author.find(params[:id])
-    author.update({
-                    name: params[:author][:name],
-                    year_born: params[:author][:year_born].to_i,
-                    alive: ActiveModel::Type::Boolean.new.cast(params[:author][:alive]),
-                    updated_at: DateTime.now
-                  })
-    author.save
+    author = Author.author_update(params)
     redirect_to "/authors/#{author.id}"
   end
 
   def destroy
-    Author.destroy(params[:id])
+    Author.destroy_self_and_books(params)
     redirect_to '/authors'
   end
 end

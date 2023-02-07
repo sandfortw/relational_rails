@@ -8,12 +8,8 @@
   <p>Alive?: <%= author.alive? %></p>
   <p>Created At: <%= author.created_at %></p>
   <p>Updated At: <%= author.updated_at %></p>
-  <form action="/authors/<%= author.id %>" method="POST">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="delete"/>
-  </form>
-  <a id=<%="update#{author.id}"%> href="/authors/<%= author.id %>/edit">Update Author</a>
+  <%= link_to "Delete #{author.name}", "/authors/#{author.id}", method: "delete"%>
+  <a id=<%="update#{author.id}"%> href="/authors/<%= author.id %>/edit"><%= "Update #{author.name}" %></a>
 <% end %>
 
 <h3><a href="/authors/new">New Author</a><h3>

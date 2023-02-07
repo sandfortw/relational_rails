@@ -58,5 +58,15 @@ describe Book do
         expect(book.updated_at).to be_a(Time)
       end
     end
+
+    describe '#destroy' do
+      it 'destroys the book' do
+        author = Author.create!(name: 'Shakespeare', year_born: 1564, alive: false)
+        book = Book.create!(title: 'Outliers', author_id: author.id, year_written: 2008, fiction: false)
+        expect(book).to be_present
+        Book.destroy(book.id)
+        expect(book.nil?)
+      end
+    end
   end
 end
