@@ -29,6 +29,7 @@ describe 'the author index page' do
   it 'should delete an author' do
     visit '/authors'
     click_link("Delete #{@author.name}")
+    expect(current_path).to eq('/authors')
     expect(page).to_not have_content(@author.name)
   end
 
@@ -41,6 +42,7 @@ describe 'the author index page' do
     visit '/authors'
     expect(page).to have_content(author.name)
     click_link("Delete #{author.name}")
+    expect(current_path).to eq('/authors')
     expect(page).to_not have_content(author.name)
   end
 end

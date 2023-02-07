@@ -35,4 +35,12 @@ describe 'books index' do
     visit '/books/'
     expect(page).to have_content('Edit book')
   end
+
+  it 'should delete a book' do
+    visit '/books'
+    expect(page).to have_content(@book.title)
+    click_link("Delete #{@book.title}")
+    expect(current_path).to eq('/books')
+    expect(page).to_not have_content(@book.title)
+  end
 end
