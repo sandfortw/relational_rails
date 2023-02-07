@@ -25,9 +25,4 @@ class AuthorBooksController < ApplicationController
     redirect_to "/authors/#{params['id']}/books"
   end
 
-  # def year_filter
-  #   @author = Author.find(params[:id])
-  #   @books = @author.books.where("year_written > #{params['year_floor']}").order(:title)
-  #   redirect_to "/authors/#{params['id']}/books"
-  # end
 end
