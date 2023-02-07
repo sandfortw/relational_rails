@@ -41,6 +41,8 @@ class Author < ApplicationRecord
   end
 
   def self.bcount_order
-    all.sort_by(&:book_count).reverse
+    self.left_joins(:books)
+        .group("authors.id")
+        .order("count(books.id) DESC")
   end
 end

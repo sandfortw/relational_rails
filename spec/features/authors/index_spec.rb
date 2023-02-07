@@ -55,6 +55,7 @@ describe 'the author index page' do
     visit '/authors'
     expect(page).not_to have_content("Book Count:")
     click_link "Sort by number of books"
+    save_and_open_page
     expect(current_path).to eq('/authors')
     expect(page).to have_content("Book Count: 3")
     expect(page).to have_content("Book Count: 1")
