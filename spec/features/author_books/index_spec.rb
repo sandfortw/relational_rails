@@ -18,13 +18,15 @@ describe 'author books index' do
     expect(page).to have_content(@book.updated_at)
   end
 
-  it 'is in alphabetical order by title' do
+  it 'you can click a link to sort alphabetically by title' do
     @author = Author.create!(name: 'Malcolm Gladwell', year_born: 1963, alive: true)
     @c_book = Book.create!(title: 'Ccccc', author_id: @author.id, year_written: 2008, fiction: false)
     @b_book = Book.create!(title: 'Bbbbb', author_id: @author.id, year_written: 2008, fiction: false)
     @a_book = Book.create!(title: 'Aaaaa', author_id: @author.id, year_written: 2008, fiction: false)
     visit "/authors/#{@author.id}/books"
-
+    expect(@a_book.title).to_not appear_before(@b_book.title)
+    expect(@b_book.title).to_not appear_before(@c_book.title)
+    click_link "Sort Books Alphabetically"
     expect(@a_book.title).to appear_before(@b_book.title)
     expect(@b_book.title).to appear_before(@c_book.title)
   end

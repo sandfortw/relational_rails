@@ -4,10 +4,11 @@ class AuthorBooksController < ApplicationController
   def index
     @author = Author.find(params[:id])
     if params[:year_floor].nil?
-      @books = @author.books.order(:title)
+      @books = @author.books
     else
-      @books = @author.books.where("year_written > #{params['year_floor']}").order(:title)
+      @books = @author.books.where("year_written > #{params['year_floor']}")
     end
+    @books = @books.order(:title) if params["alpha"] == "true"
   end
 
   def new; end

@@ -1,4 +1,6 @@
 <h1> <%= @author.name%>'s Books </h1>
+  <%= link_to "Sort Books Alphabetically", "/authors/#{@author.id}/books?alpha=true"%>
+
 <%= form_with local: true, url: "/authors/#{@author.id}/books", method: :get do |form| %>
   <%= "Only show books written after (year):" %>
   <%= form.number_field :year_floor %>

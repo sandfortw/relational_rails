@@ -33,7 +33,7 @@ describe 'books index' do
 
   it 'should have an edit link' do #TODO: Make this test better
     visit '/books/'
-    expect(page).to have_content('Edit book')
+    expect(page).to have_content("Edit #{@book.title}")
   end
 
   it 'should delete a book' do
