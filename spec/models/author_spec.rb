@@ -58,7 +58,7 @@ describe Author do
       end
     end
 
-    describe '#destroy' do
+    describe '.destroy' do
       it 'destroys the author' do
         author = Author.create!(name: 'Shakespeare', year_born: 1564, alive: false)
         expect(author).to be_present

@@ -12,8 +12,6 @@ Rails.application.routes.draw do
   delete '/authors/:id', to: 'authors#destroy'
 
   get '/books', to: 'books#index'
-  get '/books/new', to: 'books#new'
-  post '/books', to: 'books#create'
   post '/books', to: 'books#create'
   get '/books/:id', to: 'books#show'
   patch '/books/:id', to: 'books#update'
