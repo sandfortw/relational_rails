@@ -53,18 +53,17 @@ describe 'the author index page' do
     book3 = Book.create!(title: 'Three', author_id: author.id, year_written: 1999, fiction: false)
     book4 = Book.create!(title: 'Four', author_id: @author2.id, year_written: 1998, fiction: false)
     visit '/authors'
-    expect(page).not_to have_content("Book Count:")
-    click_link "Sort by number of books"
+    expect(page).not_to have_content('Book Count:')
+    click_link 'Sort by number of books'
     save_and_open_page
     expect(current_path).to eq('/authors')
-    expect(page).to have_content("Book Count: 3")
-    expect(page).to have_content("Book Count: 1")
-    expect(page).to have_content("Book Count: 0")
+    expect(page).to have_content('Book Count: 3')
+    expect(page).to have_content('Book Count: 1')
+    expect(page).to have_content('Book Count: 0')
     expect(author.name).to appear_before(@author2.name)
     expect(@author2.name).to appear_before(@author.name)
   end
 end
-
 
 describe 'update author link' do
   it 'should have a link to edit the author' do
