@@ -31,4 +31,12 @@ class Author < ApplicationRecord
     Book.destroy(books.ids)
     Author.destroy(params[:id])
   end
+
+  def books
+    Book.where(author_id: self.id)
+  end
+
+  def book_count
+    books.count
+  end
 end

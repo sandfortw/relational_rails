@@ -8,6 +8,7 @@
   <p>Alive?: <%= author.alive? %></p>
   <p>Created At: <%= author.created_at %></p>
   <p>Updated At: <%= author.updated_at %></p>
+  <p>Book Count: <%= author.book_count %></p>
   <%= link_to "Delete #{author.name}", "/authors/#{author.id}", method: "delete"%>
   <a id=<%="update#{author.id}"%> href="/authors/<%= author.id %>/edit"><%= "Update #{author.name}" %></a>
 <% end %>
