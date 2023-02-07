@@ -46,15 +46,21 @@ describe 'the author index page' do
     expect(page).to_not have_content(author.name)
   end
 
-  it 'should have a count of books by each author' do
+  it 'should have a link that sorts each author by book count' do
     author = Author.create!(name: 'Someone', year_born: 1963, alive: true)
     book1 = Book.create!(title: 'One', author_id: author.id, year_written: 2008, fiction: false)
     book2 = Book.create!(title: 'Two', author_id: author.id, year_written: 2009, fiction: false)
     book3 = Book.create!(title: 'Three', author_id: author.id, year_written: 1999, fiction: false)
-    book4 = Book.create!(title: 'Four', author_id: author.id, year_written: 1998, fiction: false)
+    book4 = Book.create!(title: 'Four', author_id: @author2.id, year_written: 1998, fiction: false)
     visit '/authors'
-    expect(page).to have_content("Book Count: 4")
+    expect(page).not_to have_content("Book Count:")
+    click_link "Sort by number of books"
+    expect(current_path).to eq('/authors')
+    expect(page).to have_content("Book Count: 3")
+    expect(page).to have_content("Book Count: 1")
     expect(page).to have_content("Book Count: 0")
+    expect(author.name).to appear_before(@author2.name)
+    expect(@author2.name).to appear_before(@author.name)
   end
 end
 

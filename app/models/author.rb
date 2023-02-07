@@ -39,4 +39,8 @@ class Author < ApplicationRecord
   def book_count
     books.count
   end
+
+  def self.bcount_order
+    all.sort_by(&:book_count).reverse
+  end
 end

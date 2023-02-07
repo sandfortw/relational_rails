@@ -2,7 +2,12 @@
 
 class AuthorsController < ApplicationController
   def index
-    @authors = Author.order(created_at: :desc)
+    @bcount = params[:bcount]
+    if !@bcount.nil?
+      @authors = Author.bcount_order
+    else 
+      @authors = Author.order(created_at: :desc)
+    end
   end
 
   def new; end
